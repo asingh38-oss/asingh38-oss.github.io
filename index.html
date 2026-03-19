@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="auto">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Aditya Singh — AI/ML Engineer</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Source+Serif+4:opsz,wght@8..60,300;8..60,400;8..60,500&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -20,20 +20,78 @@
     --accent-light: #f0ede8;
     --green: #2d6a4f;
     --green-bg: #eaf4ee;
-    --serif: 'DM Serif Display', Georgia, serif;
-    --sans: 'DM Sans', system-ui, sans-serif;
+    --serif: 'Playfair Display', Georgia, serif;
+    --sans: 'Source Serif 4', Georgia, serif;
     --mono: 'DM Mono', monospace;
   }
 
   html { scroll-behavior: smooth; }
 
+  [data-theme="dark"] {
+    --bg: #111110;
+    --surface: #1a1a18;
+    --text: #e8e8e4;
+    --muted: #8a8a84;
+    --faint: #2a2a28;
+    --accent: #e8e8e4;
+    --accent-light: #222220;
+    --green: #5dba8a;
+    --green-bg: #0e2e1e;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    [data-theme="auto"] {
+      --bg: #111110;
+      --surface: #1a1a18;
+      --text: #e8e8e4;
+      --muted: #8a8a84;
+      --faint: #2a2a28;
+      --accent: #e8e8e4;
+      --accent-light: #222220;
+      --green: #5dba8a;
+      --green-bg: #0e2e1e;
+    }
+  }
+
+  .theme-toggle {
+    display: flex;
+    align-items: center;
+    gap: 2px;
+    background: var(--faint);
+    border-radius: 4px;
+    padding: 3px;
+    margin-left: 1.5rem;
+  }
+
+  .theme-btn {
+    font-family: var(--mono);
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.06em;
+    color: var(--muted);
+    background: transparent;
+    border: none;
+    padding: 4px 10px;
+    border-radius: 3px;
+    cursor: pointer;
+    transition: all 0.15s;
+  }
+
+  .theme-btn:hover { color: var(--text); }
+
+  .theme-btn.active {
+    background: var(--surface);
+    color: var(--text);
+    box-shadow: 0 1px 3px rgba(0,0,0,0.15);
+  }
+
   body {
     font-family: var(--sans);
     background: var(--bg);
     color: var(--text);
-    font-size: 16px;
+    font-size: 18px;
     line-height: 1.7;
-    font-weight: 300;
+    font-weight: 400;
   }
 
   /* NAV */
@@ -44,7 +102,7 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 1.25rem 3rem;
+    padding: 1.75rem 3rem;
     background: rgba(250, 250, 248, 0.88);
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
@@ -53,8 +111,8 @@
 
   .nav-logo {
     font-family: var(--mono);
-    font-size: 13px;
-    font-weight: 500;
+    font-size: 17px;
+    font-weight: 700;
     letter-spacing: 0.08em;
     color: var(--text);
     text-decoration: none;
@@ -67,7 +125,7 @@
   }
 
   .nav-links a {
-    font-size: 13px;
+    font-size: 15px;
     font-weight: 400;
     color: var(--muted);
     text-decoration: none;
@@ -76,6 +134,16 @@
   }
 
   .nav-links a:hover { color: var(--text); }
+
+  [data-theme="dark"] nav {
+    background: rgba(17, 17, 16, 0.88);
+  }
+
+  @media (prefers-color-scheme: dark) {
+    [data-theme="auto"] nav {
+      background: rgba(17, 17, 16, 0.88);
+    }
+  }
 
   /* HERO */
   .hero {
@@ -106,7 +174,7 @@
 
   .hero h1 {
     font-family: var(--serif);
-    font-size: clamp(3rem, 6vw, 5.5rem);
+    font-size: clamp(3.5rem, 7vw, 6.5rem);
     line-height: 1.05;
     letter-spacing: -0.01em;
     margin-bottom: 1.5rem;
@@ -171,9 +239,10 @@
 
   .section-label {
     font-family: var(--mono);
-    font-size: 11px;
-    letter-spacing: 0.14em;
-    color: var(--muted);
+    font-size: 1.4rem;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    color: var(--text);
     text-transform: uppercase;
     margin-bottom: 3rem;
     display: flex;
@@ -230,7 +299,7 @@
   }
 
   .project-desc {
-    font-size: 0.9rem;
+    font-size: 1.05rem;
     color: var(--muted);
     line-height: 1.7;
     margin-bottom: 1.5rem;
@@ -317,12 +386,12 @@
 
   .timeline-role {
     font-weight: 500;
-    font-size: 1rem;
+    font-size: 1.2rem;
     margin-bottom: 0.2rem;
   }
 
   .timeline-company {
-    font-size: 0.85rem;
+    font-size: 1rem;
     color: var(--muted);
     margin-bottom: 0.75rem;
   }
@@ -333,7 +402,7 @@
   }
 
   .timeline-bullets li {
-    font-size: 0.9rem;
+    font-size: 1.05rem;
     color: var(--muted);
     padding-left: 1rem;
     position: relative;
@@ -412,7 +481,7 @@
   }
 
   .edu-school {
-    font-size: 0.9rem;
+    font-size: 1.05rem;
     color: var(--muted);
   }
 
@@ -423,7 +492,7 @@
 
   .contact-heading {
     font-family: var(--serif);
-    font-size: clamp(2rem, 4vw, 3.5rem);
+    font-size: clamp(2.5rem, 5vw, 4.5rem);
     font-weight: 400;
     line-height: 1.1;
     margin-bottom: 1.5rem;
@@ -453,7 +522,7 @@
     gap: 1rem;
     text-decoration: none;
     color: var(--text);
-    font-size: 0.9rem;
+    font-size: 1.05rem;
     padding: 0.75rem 1rem;
     border: 1px solid var(--faint);
     border-radius: 2px;
@@ -518,15 +587,20 @@
     <li><a href="#skills">Skills</a></li>
     <li><a href="#contact">Contact</a></li>
   </ul>
+  <div class="theme-toggle">
+    <button class="theme-btn" onclick="setTheme('light')" id="btn-light">Light</button>
+    <button class="theme-btn active" onclick="setTheme('auto')" id="btn-auto">Auto</button>
+    <button class="theme-btn" onclick="setTheme('dark')" id="btn-dark">Dark</button>
+  </div>
 </nav>
 
 <!-- HERO -->
 <div class="hero">
   <div class="hero-inner">
-    <span class="hero-tag">Available for opportunities</span>
+    <span class="hero-tag">BS Computer Science · AI/ML Focus</span>
     <h1>Aditya<br>Singh<em>.</em></h1>
     <p class="hero-bio">
-      Aspiring AI/ML Engineer finishing a BS in Computer Science (Systems &amp; Networks concentration, May 2026). I build custom intelligence layers — not just pipelines — with a focus on real engineering decisions that hold up in production.
+      Computer Science senior graduating May 2026, specializing in machine learning engineering. Experienced designing and deploying deep learning and generative AI systems end-to-end — from data pipelines and model training to production deployment. Focused on large language models, fine-tuning, and scalable ML infrastructure.
     </p>
     <div class="hero-actions">
       <a href="#projects" class="btn btn-primary">View projects</a>
@@ -548,7 +622,7 @@
       <span class="project-tag">AI / Computer Vision</span>
       <h3 class="project-title">Home AI Monitor v2</h3>
       <p class="project-desc">
-        A fully custom home security intelligence system built on a MacBook Pro. Uses OpenCV MOG2 for per-zone motion detection, Claude Vision API for scene analysis, Claude Haiku for natural-language querying, and Zigbee2MQTT for IoT sensor integration — all wired together with an async Python architecture and SQLite event store. <em>Coming soon.</em>
+        A fully custom home security intelligence system built on a MacBook Pro. Uses OpenCV MOG2 for per-zone motion detection, Claude Vision API for scene analysis, Claude Haiku for natural-language querying, and Zigbee2MQTT for IoT sensor integration — all wired together with an async Python architecture and SQLite event store. Coming soon.
       </p>
       <div class="project-stack">
         <span class="stack-pill">Python</span>
@@ -612,12 +686,29 @@
       </a>
     </div>
 
+    <!-- Mock ECU -->
+    <div class="project-card">
+      <span class="project-tag">Embedded / Systems</span>
+      <h3 class="project-title">Mock ECU</h3>
+      <p class="project-desc">
+        A mock Electronic Control Unit built in Go simulating AUTOSAR software architecture concepts — modular runnable tasks, scheduling layers, and inter-component communication patterns mirroring real automotive software stack design. Developed collaboratively via GitHub with branching strategy and code reviews.
+      </p>
+      <div class="project-stack">
+        <span class="stack-pill">Go</span>
+        <span class="stack-pill">AUTOSAR</span>
+        <span class="stack-pill">WSL2</span>
+        <span class="stack-pill">GitHub</span>
+      </div>
+      <a href="https://github.com/asingh38-oss/AUTOSAR-Mock-ECU" target="_blank" class="project-link">
+        View on GitHub
+        <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
+          <path d="M2.5 9.5L9.5 2.5M9.5 2.5H4.5M9.5 2.5V7.5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </a>
+    </div>
+
   </div>
 </section>
-
-<hr class="full-divider">
-
-<!-- EXPERIENCE -->
 <section id="experience">
   <p class="section-label">Experience</p>
   <div class="timeline">
@@ -655,17 +746,15 @@
         <p class="timeline-role">Server / Bartender</p>
         <p class="timeline-company">H2 Public House</p>
         <ul class="timeline-bullets">
-          <li>Managed up to 10 tables in a high-volume sports bar environment, developing multitasking, communication, and pressure-management skills that directly transfer to fast-moving engineering teams.</li>
+          <li>Curated a satisfactory dining experience for 200+ patrons per night, managing high-volume service with consistent accuracy, composure under pressure, and strong cross-team communication.</li>
         </ul>
       </div>
-    </div>
-
   </div>
 </section>
 
 <hr class="full-divider">
 
-<!-- SKILLS -->
+<!-- EXPERIENCE -->
 <section id="skills">
   <p class="section-label">Skills</p>
   <div class="skills-grid">
@@ -673,6 +762,7 @@
       <p class="skill-group-title">Languages</p>
       <div class="skill-tags">
         <span class="skill-tag">Python</span>
+        <span class="skill-tag">Go</span>
         <span class="skill-tag">Java</span>
         <span class="skill-tag">JavaScript</span>
         <span class="skill-tag">HTML/CSS</span>
@@ -683,28 +773,51 @@
     <div class="skill-group">
       <p class="skill-group-title">AI / ML</p>
       <div class="skill-tags">
+        <span class="skill-tag">PyTorch</span>
+        <span class="skill-tag">TensorFlow</span>
+        <span class="skill-tag">Keras</span>
+        <span class="skill-tag">Hugging Face</span>
+        <span class="skill-tag">Scikit-learn</span>
         <span class="skill-tag">Claude API</span>
         <span class="skill-tag">OpenCV</span>
+        <span class="skill-tag">LLM Fine-tuning</span>
+        <span class="skill-tag">RAG Pipelines</span>
+        <span class="skill-tag">RLHF</span>
         <span class="skill-tag">Computer Vision</span>
-        <span class="skill-tag">ETL Pipelines</span>
-        <span class="skill-tag">Async Architecture</span>
+        <span class="skill-tag">NLP</span>
       </div>
     </div>
     <div class="skill-group">
-      <p class="skill-group-title">Tools & Platforms</p>
+      <p class="skill-group-title">Infrastructure</p>
+      <div class="skill-tags">
+        <span class="skill-tag">Docker</span>
+        <span class="skill-tag">Linux</span>
+        <span class="skill-tag">AWS</span>
+        <span class="skill-tag">GitHub Actions</span>
+        <span class="skill-tag">ChromaDB</span>
+        <span class="skill-tag">Tailscale</span>
+        <span class="skill-tag">Gradio</span>
+        <span class="skill-tag">Hugging Face Spaces</span>
+      </div>
+    </div>
+    <div class="skill-group">
+      <p class="skill-group-title">Tools & Data</p>
       <div class="skill-tags">
         <span class="skill-tag">Git/GitHub</span>
-        <span class="skill-tag">AWS</span>
-        <span class="skill-tag">SQLite</span>
-        <span class="skill-tag">Zigbee2MQTT</span>
+        <span class="skill-tag">NumPy</span>
+        <span class="skill-tag">ETL Pipelines</span>
         <span class="skill-tag">VS Code</span>
+        <span class="skill-tag">REST APIs</span>
+        <span class="skill-tag">SQLite</span>
+        <span class="skill-tag">KNIME</span>
       </div>
     </div>
     <div class="skill-group">
       <p class="skill-group-title">Education</p>
       <div style="margin-top: 0.25rem;">
         <p style="font-size: 0.95rem; font-weight: 500; margin-bottom: 0.25rem;">BS in Computer Science</p>
-        <p style="font-size: 0.85rem; color: var(--muted);">Systems &amp; Networks concentration</p>
+        <p style="font-size: 1rem; color: var(--muted);">Systems &amp; Networks · GPA 3.4</p>
+        <p style="font-size: 1rem; color: var(--muted);">UNC Charlotte</p>
         <p style="font-family: var(--mono); font-size: 11px; color: var(--muted); margin-top: 0.5rem; letter-spacing: 0.06em;">Graduating May 2026</p>
       </div>
     </div>
@@ -717,17 +830,44 @@
 <section id="contact">
   <div class="contact-inner">
     <p class="section-label">Contact</p>
-    <h2 class="contact-heading">Let's build something <em>real.</em></h2>
+    <h2 class="contact-heading">Legacy over <em>iteration.</em></h2>
     <p class="contact-sub">
-      I'm actively looking for AI/ML engineering roles where I can contribute real intelligence — not just integration. If you're working on something interesting, I'd love to talk.
+      The best engineering problems aren't solved in a quarter; great AI is architected with intention, built to outlast the hype. I'm looking for a team where the architecture decisions made today are still the right ones three years from now. If you're building with that mindset, I'd love to connect.
     </p>
     <div class="contact-links">
-      <a href="#" onclick="window.location.href='mailto:adityasingh1786@gmail.com';return false;" class="contact-link">
+      <a href="#" onclick="window.location.href='mailto:adityaprof1786@gmail.com';return false;" class="contact-link">
         <span class="contact-link-label">Email</span>
-        <span class="__cf_email__" data-cfemail="7b1a1f120f021a0812151c134a4c434d3b1c161a121755181416">[email&#160;protected]</span>
+        adityaprof1786@gmail.com
       </a>
       <a href="tel:7048583428" class="contact-link">
         <span class="contact-link-label">Phone</span>
         704-858-3428
       </a>
-      <a href="https://github.com/asingh38-oss" target="_blank"
+      <a href="https://github.com/asingh38-oss" target="_blank"      <a href="https://github.com/asingh38-oss" target="_blank" class="contact-link">
+        <span class="contact-link-label">GitHub</span>
+        github.com/asingh38-oss
+      </a>
+    </div>
+  </div>
+</section>
+
+<hr class="full-divider">
+
+<footer>
+  <p>Aditya Singh — AI/ML Engineer</p>
+  <p>Charlotte, NC · 2026</p>
+</footer>
+
+<script>
+  function setTheme(theme) {
+    document.documentElement.setAttribute('data-theme', theme);
+    localStorage.setItem('theme', theme);
+    document.querySelectorAll('.theme-btn').forEach(btn => btn.classList.remove('active'));
+    document.getElementById('btn-' + theme).classList.add('active');
+  }
+  const saved = localStorage.getItem('theme') || 'auto';
+  setTheme(saved);
+</script>
+
+</body>
+</html>
