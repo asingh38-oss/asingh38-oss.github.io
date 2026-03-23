@@ -94,7 +94,6 @@
     font-weight: 400;
   }
 
-  /* NAV */
   nav {
     position: fixed;
     top: 0; left: 0; right: 0;
@@ -118,11 +117,7 @@
     text-decoration: none;
   }
 
-  .nav-links {
-    display: flex;
-    gap: 2.5rem;
-    list-style: none;
-  }
+  .nav-links { display: flex; gap: 2.5rem; list-style: none; }
 
   .nav-links a {
     font-size: 15px;
@@ -135,17 +130,11 @@
 
   .nav-links a:hover { color: var(--text); }
 
-  [data-theme="dark"] nav {
-    background: rgba(17, 17, 16, 0.88);
-  }
-
+  [data-theme="dark"] nav { background: rgba(17, 17, 16, 0.88); }
   @media (prefers-color-scheme: dark) {
-    [data-theme="auto"] nav {
-      background: rgba(17, 17, 16, 0.88);
-    }
+    [data-theme="auto"] nav { background: rgba(17, 17, 16, 0.88); }
   }
 
-  /* HERO */
   .hero {
     min-height: 100vh;
     display: flex;
@@ -155,9 +144,7 @@
     margin: 0 auto;
   }
 
-  .hero-inner {
-    max-width: 680px;
-  }
+  .hero-inner { max-width: 680px; }
 
   .hero-tag {
     font-family: var(--mono);
@@ -181,10 +168,7 @@
     font-weight: 400;
   }
 
-  .hero h1 em {
-    font-style: italic;
-    color: var(--muted);
-  }
+  .hero h1 em { font-style: italic; color: var(--muted); }
 
   .hero-bio {
     font-size: 1.05rem;
@@ -194,11 +178,7 @@
     line-height: 1.8;
   }
 
-  .hero-actions {
-    display: flex;
-    gap: 1rem;
-    flex-wrap: wrap;
-  }
+  .hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; }
 
   .btn {
     display: inline-block;
@@ -211,26 +191,11 @@
     transition: all 0.2s;
   }
 
-  .btn-primary {
-    background: var(--text);
-    color: var(--bg);
-  }
+  .btn-primary { background: var(--text); color: var(--bg); }
+  .btn-primary:hover { background: #333; }
+  .btn-ghost { background: transparent; color: var(--text); border: 1px solid var(--faint); }
+  .btn-ghost:hover { border-color: var(--text); }
 
-  .btn-primary:hover {
-    background: #333;
-  }
-
-  .btn-ghost {
-    background: transparent;
-    color: var(--text);
-    border: 1px solid var(--faint);
-  }
-
-  .btn-ghost:hover {
-    border-color: var(--text);
-  }
-
-  /* SECTIONS */
   section {
     padding: 6rem 3rem;
     max-width: 1100px;
@@ -258,7 +223,6 @@
     max-width: 80px;
   }
 
-  /* PROJECTS */
   .projects-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -274,9 +238,7 @@
     position: relative;
   }
 
-  .project-card:hover {
-    background: var(--accent-light);
-  }
+  .project-card:hover { background: var(--accent-light); }
 
   .project-tag {
     font-family: var(--mono);
@@ -305,12 +267,7 @@
     margin-bottom: 1.5rem;
   }
 
-  .project-stack {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.5rem;
-    margin-bottom: 1.5rem;
-  }
+  .project-stack { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1.5rem; }
 
   .stack-pill {
     font-family: var(--mono);
@@ -333,36 +290,16 @@
   }
 
   .project-link:hover { text-decoration: underline; }
-
   .project-link svg { transition: transform 0.2s; }
   .project-link:hover svg { transform: translate(2px, -2px); }
 
-  /* COMING SOON CARD */
-  .project-card.placeholder {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    justify-content: center;
-    border: 1.5px dashed var(--faint);
-    background: var(--bg);
-  }
-
-  .placeholder-icon {
-    font-size: 1.5rem;
-    margin-bottom: 1rem;
-    opacity: 0.3;
-  }
-
-  /* EXPERIENCE */
   .timeline {
     display: grid;
     grid-template-columns: 180px 1fr;
     gap: 0 3rem;
   }
 
-  .timeline-item {
-    display: contents;
-  }
+  .timeline-item { display: contents; }
 
   .timeline-date {
     font-family: var(--mono);
@@ -384,22 +321,9 @@
     padding-bottom: 0;
   }
 
-  .timeline-role {
-    font-weight: 500;
-    font-size: 1.2rem;
-    margin-bottom: 0.2rem;
-  }
-
-  .timeline-company {
-    font-size: 1rem;
-    color: var(--muted);
-    margin-bottom: 0.75rem;
-  }
-
-  .timeline-bullets {
-    list-style: none;
-    padding: 0;
-  }
+  .timeline-role { font-weight: 500; font-size: 1.2rem; margin-bottom: 0.2rem; }
+  .timeline-company { font-size: 1rem; color: var(--muted); margin-bottom: 0.75rem; }
+  .timeline-bullets { list-style: none; padding: 0; }
 
   .timeline-bullets li {
     font-size: 1.05rem;
@@ -410,25 +334,15 @@
     line-height: 1.6;
   }
 
-  .timeline-bullets li::before {
-    content: '—';
-    position: absolute;
-    left: 0;
-    color: var(--faint);
-  }
+  .timeline-bullets li::before { content: '—'; position: absolute; left: 0; color: var(--faint); }
 
-  /* SKILLS */
   .skills-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
     gap: 1.5rem;
   }
 
-  .skill-group {
-    padding: 1.75rem;
-    border: 1px solid var(--faint);
-    border-radius: 2px;
-  }
+  .skill-group { padding: 1.75rem; border: 1px solid var(--faint); border-radius: 2px; }
 
   .skill-group-title {
     font-family: var(--mono);
@@ -439,11 +353,7 @@
     text-transform: uppercase;
   }
 
-  .skill-tags {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.5rem;
-  }
+  .skill-tags { display: flex; flex-wrap: wrap; gap: 0.5rem; }
 
   .skill-tag {
     font-size: 13px;
@@ -454,41 +364,7 @@
     border-radius: 2px;
   }
 
-  /* EDUCATION */
-  .edu-card {
-    padding: 2rem;
-    border: 1px solid var(--faint);
-    border-radius: 2px;
-    display: flex;
-    gap: 2rem;
-    align-items: flex-start;
-    max-width: 560px;
-  }
-
-  .edu-year {
-    font-family: var(--mono);
-    font-size: 12px;
-    color: var(--muted);
-    white-space: nowrap;
-    padding-top: 0.2rem;
-  }
-
-  .edu-degree {
-    font-family: var(--serif);
-    font-size: 1.25rem;
-    font-weight: 400;
-    margin-bottom: 0.3rem;
-  }
-
-  .edu-school {
-    font-size: 1.05rem;
-    color: var(--muted);
-  }
-
-  /* CONTACT */
-  .contact-inner {
-    max-width: 560px;
-  }
+  .contact-inner { max-width: 560px; }
 
   .contact-heading {
     font-family: var(--serif);
@@ -498,10 +374,7 @@
     margin-bottom: 1.5rem;
   }
 
-  .contact-heading em {
-    font-style: italic;
-    color: var(--muted);
-  }
+  .contact-heading em { font-style: italic; color: var(--muted); }
 
   .contact-sub {
     font-size: 0.95rem;
@@ -510,11 +383,7 @@
     line-height: 1.8;
   }
 
-  .contact-links {
-    display: flex;
-    flex-direction: column;
-    gap: 0.75rem;
-  }
+  .contact-links { display: flex; flex-direction: column; gap: 0.75rem; }
 
   .contact-link {
     display: flex;
@@ -529,10 +398,7 @@
     transition: all 0.2s;
   }
 
-  .contact-link:hover {
-    border-color: var(--text);
-    background: var(--accent-light);
-  }
+  .contact-link:hover { border-color: var(--text); background: var(--accent-light); }
 
   .contact-link-label {
     font-family: var(--mono);
@@ -542,7 +408,6 @@
     min-width: 60px;
   }
 
-  /* FOOTER */
   footer {
     border-top: 1px solid var(--faint);
     padding: 2rem 3rem;
@@ -553,17 +418,9 @@
     margin: 0 auto;
   }
 
-  footer p {
-    font-family: var(--mono);
-    font-size: 12px;
-    color: var(--muted);
-  }
+  footer p { font-family: var(--mono); font-size: 12px; color: var(--muted); }
 
-  /* DIVIDER */
-  .full-divider {
-    border: none;
-    border-top: 1px solid var(--faint);
-  }
+  .full-divider { border: none; border-top: 1px solid var(--faint); }
 
   @media (max-width: 700px) {
     nav { padding: 1rem 1.5rem; }
@@ -618,12 +475,35 @@
   <p class="section-label">Projects</p>
   <div class="projects-grid">
 
+    <!-- Interrogation Control Protocol — NEW -->
+    <div class="project-card">
+      <span class="project-tag">AI Safety / Research</span>
+      <h3 class="project-title">Interrogation Control Protocol</h3>
+      <p class="project-desc">
+        Built at the Apart Research AI Control Hackathon (co-organized with Redwood Research and UK AISI). Before an AI agent executes any bash command, a trusted monitor interrogates it with two targeted questions and issues an approve/reject decision. Achieved 100% catch rate across 5 malicious attack types — credential exfiltration, reverse shells, key harvesting, secret scraping, and cron persistence. Key finding: current frontier models self-disclose malicious intent when directly confronted, even when instructed to hide it.
+      </p>
+      <div class="project-stack">
+        <span class="stack-pill">Python</span>
+        <span class="stack-pill">Claude API</span>
+        <span class="stack-pill">GPT-4o</span>
+        <span class="stack-pill">OpenRouter</span>
+        <span class="stack-pill">LLM-as-Judge</span>
+        <span class="stack-pill">AI Safety</span>
+      </div>
+      <a href="https://github.com/asingh38-oss/interrogation-control-protocol" target="_blank" class="project-link">
+        View on GitHub
+        <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
+          <path d="M2.5 9.5L9.5 2.5M9.5 2.5H4.5M9.5 2.5V7.5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </a>
+    </div>
+
     <!-- Home AI Monitor -->
     <div class="project-card">
       <span class="project-tag">AI / Computer Vision</span>
       <h3 class="project-title">Home AI Monitor v2</h3>
       <p class="project-desc">
-        A fully custom home security intelligence system built on a MacBook Pro. Uses OpenCV MOG2 for per-zone motion detection, Claude Vision API for scene analysis, Claude Haiku for natural-language querying, and Zigbee2MQTT for IoT sensor integration — all wired together with an async Python architecture and SQLite event store. Coming soon.
+        A fully custom home security intelligence system built on a MacBook Pro. Uses OpenCV MOG2 for per-zone motion detection, Claude Vision API for scene analysis, Claude Haiku for natural-language querying, and Zigbee2MQTT for IoT sensor integration — all wired together with an async Python architecture and SQLite event store.
       </p>
       <div class="project-stack">
         <span class="stack-pill">Python</span>
@@ -632,7 +512,6 @@
         <span class="stack-pill">Claude Haiku</span>
         <span class="stack-pill">Zigbee2MQTT</span>
         <span class="stack-pill">SQLite</span>
-        <span class="stack-pill">RTSP</span>
         <span class="stack-pill">asyncio</span>
       </div>
       <span style="font-family: var(--mono); font-size: 11px; color: var(--muted); letter-spacing: 0.06em;">Private repository</span>
@@ -653,7 +532,6 @@
         <span class="stack-pill">React</span>
         <span class="stack-pill">TypeScript</span>
         <span class="stack-pill">Gemini API</span>
-        <span class="stack-pill">Vite</span>
       </div>
       <a href="https://github.com/BoonePool/emotion_AI" target="_blank" class="project-link">
         View on GitHub
@@ -668,7 +546,7 @@
       <span class="project-tag">AI / Agentic Systems</span>
       <h3 class="project-title">NotebookLM 2.0</h3>
       <p class="project-desc">
-        An autonomous CLI coding assistant built around an agentic think-act-observe loop. Give it a task and it reasons over your codebase, reads and edits files, runs shell commands, and works until done. Supports OpenAI and Ollama provider switching at runtime, and connects to MCP servers — including a custom RAG server using HyDE (Hypothetical Document Embeddings) for superior documentation retrieval.
+        An autonomous CLI coding assistant built around an agentic think-act-observe loop. Give it a task and it reasons over your codebase, reads and edits files, runs shell commands, and works until done. Supports OpenAI and Ollama provider switching at runtime, and connects to MCP servers — including a custom RAG server using HyDE for superior documentation retrieval.
       </p>
       <div class="project-stack">
         <span class="stack-pill">Python</span>
@@ -710,6 +588,10 @@
 
   </div>
 </section>
+
+<hr class="full-divider">
+
+<!-- EXPERIENCE -->
 <section id="experience">
   <p class="section-label">Experience</p>
   <div class="timeline">
@@ -750,12 +632,14 @@
           <li>Curated a satisfactory dining experience for 200+ patrons per night, managing high-volume service with consistent accuracy, composure under pressure, and strong cross-team communication.</li>
         </ul>
       </div>
+    </div>
+
   </div>
 </section>
 
 <hr class="full-divider">
 
-<!-- EXPERIENCE -->
+<!-- SKILLS -->
 <section id="skills">
   <p class="section-label">Skills</p>
   <div class="skills-grid">
@@ -836,7 +720,7 @@
       The best engineering problems aren't solved in a quarter; great AI is architected with intention, built to outlast the hype. I'm looking for a team where the architecture decisions made today are still the right ones three years from now. If you're building with that mindset, I'd love to connect.
     </p>
     <div class="contact-links">
-      <a href="#" onclick="window.location.href='mailto:adityaprof1786@gmail.com';return false;" class="contact-link">
+      <a href="mailto:adityaprof1786@gmail.com" class="contact-link">
         <span class="contact-link-label">Email</span>
         adityaprof1786@gmail.com
       </a>
@@ -844,7 +728,7 @@
         <span class="contact-link-label">Phone</span>
         704-858-3428
       </a>
-      <a href="https://github.com/asingh38-oss" target="_blank"      <a href="https://github.com/asingh38-oss" target="_blank" class="contact-link">
+      <a href="https://github.com/asingh38-oss" target="_blank" class="contact-link">
         <span class="contact-link-label">GitHub</span>
         github.com/asingh38-oss
       </a>
