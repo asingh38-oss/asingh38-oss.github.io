@@ -94,6 +94,7 @@
     font-weight: 400;
   }
 
+  /* NAV */
   nav {
     position: fixed;
     top: 0; left: 0; right: 0;
@@ -117,7 +118,11 @@
     text-decoration: none;
   }
 
-  .nav-links { display: flex; gap: 2.5rem; list-style: none; align-items: center; }
+  .nav-links {
+    display: flex;
+    gap: 2.5rem;
+    list-style: none;
+  }
 
   .nav-links a {
     font-size: 15px;
@@ -130,28 +135,17 @@
 
   .nav-links a:hover { color: var(--text); }
 
-  .nav-resume-btn {
-    font-family: var(--mono);
-    font-size: 12px !important;
-    font-weight: 500 !important;
-    letter-spacing: 0.06em !important;
-    color: var(--text) !important;
-    border: 1px solid var(--faint);
-    padding: 5px 14px;
-    border-radius: 2px;
-    transition: all 0.2s !important;
+  [data-theme="dark"] nav {
+    background: rgba(17, 17, 16, 0.88);
   }
 
-  .nav-resume-btn:hover {
-    border-color: var(--text) !important;
-    background: var(--accent-light);
-  }
-
-  [data-theme="dark"] nav { background: rgba(17, 17, 16, 0.88); }
   @media (prefers-color-scheme: dark) {
-    [data-theme="auto"] nav { background: rgba(17, 17, 16, 0.88); }
+    [data-theme="auto"] nav {
+      background: rgba(17, 17, 16, 0.88);
+    }
   }
 
+  /* HERO */
   .hero {
     min-height: 100vh;
     display: flex;
@@ -161,7 +155,9 @@
     margin: 0 auto;
   }
 
-  .hero-inner { max-width: 680px; }
+  .hero-inner {
+    max-width: 680px;
+  }
 
   .hero-tag {
     font-family: var(--mono);
@@ -185,7 +181,10 @@
     font-weight: 400;
   }
 
-  .hero h1 em { font-style: italic; color: var(--muted); }
+  .hero h1 em {
+    font-style: italic;
+    color: var(--muted);
+  }
 
   .hero-bio {
     font-size: 1.05rem;
@@ -195,7 +194,11 @@
     line-height: 1.8;
   }
 
-  .hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; }
+  .hero-actions {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
 
   .btn {
     display: inline-block;
@@ -208,11 +211,26 @@
     transition: all 0.2s;
   }
 
-  .btn-primary { background: var(--text); color: var(--bg); }
-  .btn-primary:hover { opacity: 0.85; }
-  .btn-ghost { background: transparent; color: var(--text); border: 1px solid var(--faint); }
-  .btn-ghost:hover { border-color: var(--text); }
+  .btn-primary {
+    background: var(--text);
+    color: var(--bg);
+  }
 
+  .btn-primary:hover {
+    background: #333;
+  }
+
+  .btn-ghost {
+    background: transparent;
+    color: var(--text);
+    border: 1px solid var(--faint);
+  }
+
+  .btn-ghost:hover {
+    border-color: var(--text);
+  }
+
+  /* SECTIONS */
   section {
     padding: 6rem 3rem;
     max-width: 1100px;
@@ -256,7 +274,9 @@
     position: relative;
   }
 
-  .project-card:hover { background: var(--accent-light); }
+  .project-card:hover {
+    background: var(--accent-light);
+  }
 
   .project-tag {
     font-family: var(--mono);
@@ -285,7 +305,12 @@
     margin-bottom: 1.5rem;
   }
 
-  .project-stack { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1.5rem; }
+  .project-stack {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
+  }
 
   .stack-pill {
     font-family: var(--mono);
@@ -308,8 +333,25 @@
   }
 
   .project-link:hover { text-decoration: underline; }
+
   .project-link svg { transition: transform 0.2s; }
   .project-link:hover svg { transform: translate(2px, -2px); }
+
+  /* COMING SOON CARD */
+  .project-card.placeholder {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    border: 1.5px dashed var(--faint);
+    background: var(--bg);
+  }
+
+  .placeholder-icon {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    opacity: 0.3;
+  }
 
   /* EXPERIENCE */
   .timeline {
@@ -318,7 +360,9 @@
     gap: 0 3rem;
   }
 
-  .timeline-item { display: contents; }
+  .timeline-item {
+    display: contents;
+  }
 
   .timeline-date {
     font-family: var(--mono);
@@ -340,9 +384,22 @@
     padding-bottom: 0;
   }
 
-  .timeline-role { font-weight: 500; font-size: 1.2rem; margin-bottom: 0.2rem; }
-  .timeline-company { font-size: 1rem; color: var(--muted); margin-bottom: 0.75rem; }
-  .timeline-bullets { list-style: none; padding: 0; }
+  .timeline-role {
+    font-weight: 500;
+    font-size: 1.2rem;
+    margin-bottom: 0.2rem;
+  }
+
+  .timeline-company {
+    font-size: 1rem;
+    color: var(--muted);
+    margin-bottom: 0.75rem;
+  }
+
+  .timeline-bullets {
+    list-style: none;
+    padding: 0;
+  }
 
   .timeline-bullets li {
     font-size: 1.05rem;
@@ -353,7 +410,12 @@
     line-height: 1.6;
   }
 
-  .timeline-bullets li::before { content: '—'; position: absolute; left: 0; color: var(--faint); }
+  .timeline-bullets li::before {
+    content: '—';
+    position: absolute;
+    left: 0;
+    color: var(--faint);
+  }
 
   /* SKILLS */
   .skills-grid {
@@ -362,7 +424,11 @@
     gap: 1.5rem;
   }
 
-  .skill-group { padding: 1.75rem; border: 1px solid var(--faint); border-radius: 2px; }
+  .skill-group {
+    padding: 1.75rem;
+    border: 1px solid var(--faint);
+    border-radius: 2px;
+  }
 
   .skill-group-title {
     font-family: var(--mono);
@@ -373,7 +439,11 @@
     text-transform: uppercase;
   }
 
-  .skill-tags { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+  .skill-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
 
   .skill-tag {
     font-size: 13px;
@@ -384,165 +454,41 @@
     border-radius: 2px;
   }
 
-  /* RESUME SECTION */
-  .resume-header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin-bottom: 3rem;
-    flex-wrap: wrap;
-    gap: 1rem;
-  }
-
-  .resume-header .section-label { margin-bottom: 0; }
-
-  .btn-download {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.6rem;
-    padding: 0.65rem 1.5rem;
-    background: var(--text);
-    color: var(--bg);
-    border-radius: 2px;
-    font-family: var(--mono);
-    font-size: 12px;
-    font-weight: 500;
-    letter-spacing: 0.06em;
-    text-decoration: none;
-    transition: opacity 0.2s;
-  }
-
-  .btn-download:hover { opacity: 0.8; }
-
-  .resume-card {
+  /* EDUCATION */
+  .edu-card {
+    padding: 2rem;
     border: 1px solid var(--faint);
     border-radius: 2px;
-    overflow: hidden;
+    display: flex;
+    gap: 2rem;
+    align-items: flex-start;
+    max-width: 560px;
   }
 
-  .resume-block {
-    padding: 2rem 2.5rem;
-    border-bottom: 1px solid var(--faint);
-  }
-
-  .resume-block:last-child { border-bottom: none; }
-
-  .resume-block-label {
-    font-family: var(--mono);
-    font-size: 10px;
-    letter-spacing: 0.12em;
-    color: var(--muted);
-    text-transform: uppercase;
-    margin-bottom: 1.25rem;
-  }
-
-  .resume-name {
-    font-family: var(--serif);
-    font-size: 2rem;
-    font-weight: 400;
-    margin-bottom: 0.25rem;
-  }
-
-  .resume-title-line {
+  .edu-year {
     font-family: var(--mono);
     font-size: 12px;
-    color: var(--green);
-    letter-spacing: 0.08em;
-    margin-bottom: 0.5rem;
-  }
-
-  .resume-contact-line {
-    font-size: 0.9rem;
     color: var(--muted);
+    white-space: nowrap;
+    padding-top: 0.2rem;
   }
 
-  .resume-profile {
-    font-size: 0.95rem;
-    color: var(--muted);
-    line-height: 1.8;
-  }
-
-  .resume-skills-grid {
-    display: flex;
-    flex-direction: column;
-    gap: 0.6rem;
-  }
-
-  .resume-skill-row {
-    display: grid;
-    grid-template-columns: 130px 1fr;
-    gap: 1rem;
-    font-size: 0.9rem;
-  }
-
-  .resume-skill-cat {
-    font-family: var(--mono);
-    font-size: 11px;
-    color: var(--muted);
-    padding-top: 2px;
-  }
-
-  .resume-skill-val { color: var(--text); line-height: 1.6; }
-
-  .resume-project {
-    margin-bottom: 1.5rem;
-    padding-bottom: 1.5rem;
-    border-bottom: 1px solid var(--faint);
-  }
-
-  .resume-project:last-child { margin-bottom: 0; padding-bottom: 0; border-bottom: none; }
-
-  .resume-project-name {
-    font-weight: 500;
-    font-size: 1rem;
-    margin-bottom: 0.2rem;
-  }
-
-  .resume-project-stack {
-    font-family: var(--mono);
-    font-size: 10px;
-    color: var(--green);
-    letter-spacing: 0.06em;
-    margin-bottom: 0.6rem;
-  }
-
-  .resume-bullets { list-style: none; padding: 0; }
-
-  .resume-bullets li {
-    font-size: 0.9rem;
-    color: var(--muted);
-    padding-left: 1rem;
-    position: relative;
+  .edu-degree {
+    font-family: var(--serif);
+    font-size: 1.25rem;
+    font-weight: 400;
     margin-bottom: 0.3rem;
-    line-height: 1.6;
   }
 
-  .resume-bullets li::before { content: '·'; position: absolute; left: 0; color: var(--muted); }
-
-  .resume-job { margin-bottom: 1.5rem; padding-bottom: 1.5rem; border-bottom: 1px solid var(--faint); }
-  .resume-job:last-child { margin-bottom: 0; padding-bottom: 0; border-bottom: none; }
-
-  .resume-job-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: baseline;
-    flex-wrap: wrap;
-    gap: 0.5rem;
-    margin-bottom: 0.2rem;
-  }
-
-  .resume-job-title { font-weight: 500; font-size: 1rem; }
-
-  .resume-job-date {
-    font-family: var(--mono);
-    font-size: 11px;
+  .edu-school {
+    font-size: 1.05rem;
     color: var(--muted);
   }
-
-  .resume-job-company { font-size: 0.9rem; color: var(--muted); margin-bottom: 0.6rem; }
 
   /* CONTACT */
-  .contact-inner { max-width: 560px; }
+  .contact-inner {
+    max-width: 560px;
+  }
 
   .contact-heading {
     font-family: var(--serif);
@@ -552,7 +498,10 @@
     margin-bottom: 1.5rem;
   }
 
-  .contact-heading em { font-style: italic; color: var(--muted); }
+  .contact-heading em {
+    font-style: italic;
+    color: var(--muted);
+  }
 
   .contact-sub {
     font-size: 0.95rem;
@@ -561,7 +510,11 @@
     line-height: 1.8;
   }
 
-  .contact-links { display: flex; flex-direction: column; gap: 0.75rem; }
+  .contact-links {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
 
   .contact-link {
     display: flex;
@@ -576,7 +529,10 @@
     transition: all 0.2s;
   }
 
-  .contact-link:hover { border-color: var(--text); background: var(--accent-light); }
+  .contact-link:hover {
+    border-color: var(--text);
+    background: var(--accent-light);
+  }
 
   .contact-link-label {
     font-family: var(--mono);
@@ -586,6 +542,7 @@
     min-width: 60px;
   }
 
+  /* FOOTER */
   footer {
     border-top: 1px solid var(--faint);
     padding: 2rem 3rem;
@@ -596,20 +553,80 @@
     margin: 0 auto;
   }
 
-  footer p { font-family: var(--mono); font-size: 12px; color: var(--muted); }
+  footer p {
+    font-family: var(--mono);
+    font-size: 12px;
+    color: var(--muted);
+  }
 
-  .full-divider { border: none; border-top: 1px solid var(--faint); }
+  /* DIVIDER */
+  .full-divider {
+    border: none;
+    border-top: 1px solid var(--faint);
+  }
+
+  /* HAMBURGER */
+  .hamburger {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+    background: none;
+    border: none;
+    padding: 4px;
+  }
+
+  .hamburger span {
+    display: block;
+    width: 22px;
+    height: 2px;
+    background: var(--text);
+    border-radius: 2px;
+    transition: all 0.25s;
+  }
+
+  .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+  .hamburger.open span:nth-child(2) { opacity: 0; }
+  .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
 
   @media (max-width: 700px) {
-    nav { padding: 1rem 1.5rem; }
-    .nav-links { gap: 1.2rem; }
+    nav {
+      padding: 1rem 1.5rem;
+      flex-wrap: wrap;
+      position: relative;
+    }
+
+    .hamburger { display: flex; }
+
+    .nav-links {
+      display: none;
+      flex-direction: column;
+      gap: 0;
+      width: 100%;
+      order: 3;
+      border-top: 1px solid var(--faint);
+      margin-top: 0.75rem;
+      padding-top: 0.75rem;
+    }
+
+    .nav-links.open { display: flex; }
+
+    .nav-links li { padding: 0.6rem 0; }
+
+    .nav-links a { font-size: 16px; }
+
+    .theme-toggle {
+      margin-left: auto;
+      margin-right: 0.75rem;
+    }
+
     section { padding: 4rem 1.5rem; }
     .hero { padding: 7rem 1.5rem 3rem; }
     .timeline { grid-template-columns: 1fr; gap: 0; }
     .timeline-date { margin-bottom: 0.25rem; }
-    .resume-skill-row { grid-template-columns: 1fr; gap: 0.2rem; }
-    .resume-block { padding: 1.5rem; }
     footer { padding: 1.5rem; flex-direction: column; gap: 0.5rem; text-align: center; }
+    .projects-grid { grid-template-columns: 1fr; }
+    .skills-grid { grid-template-columns: 1fr; }
   }
 </style>
 </head>
@@ -618,13 +635,16 @@
 <!-- NAV -->
 <nav>
   <a href="#" class="nav-logo">AS</a>
-  <ul class="nav-links">
+  <button class="hamburger" id="hamburger" onclick="toggleMenu()" aria-label="Toggle menu">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
+  <ul class="nav-links" id="nav-links">
     <li><a href="#projects">Projects</a></li>
     <li><a href="#experience">Experience</a></li>
     <li><a href="#skills">Skills</a></li>
-    <li><a href="#resume">Resume</a></li>
     <li><a href="#contact">Contact</a></li>
-    <li><a href="Aditya_Singh_Resume.pdf" download class="nav-resume-btn">↓ Download CV</a></li>
   </ul>
   <div class="theme-toggle">
     <button class="theme-btn" onclick="setTheme('light')" id="btn-light">Light</button>
@@ -645,8 +665,8 @@
       <a href="#projects" class="btn btn-primary">View projects</a>
       <a href="https://github.com/asingh38-oss" target="_blank" class="btn btn-ghost">GitHub</a>
       <a href="https://www.linkedin.com/in/aditya-singh-70a069387/" target="_blank" class="btn btn-ghost">LinkedIn</a>
-      <a href="Aditya_Singh_Resume.pdf" download class="btn btn-ghost">Download Resume</a>
-   </div>
+      <a href="#contact" class="btn btn-ghost">Email me</a>
+    </div>
   </div>
 </div>
 
@@ -657,43 +677,27 @@
   <p class="section-label">Projects</p>
   <div class="projects-grid">
 
-    <div class="project-card">
-      <span class="project-tag">AI Safety / Research</span>
-      <h3 class="project-title">Interrogation Control Protocol</h3>
-      <p class="project-desc">
-        Built at the Apart Research AI Control Hackathon (co-organized with Redwood Research and UK AISI). Before an AI agent executes any bash command, a trusted monitor interrogates it with two targeted questions and issues an approve/reject decision. Achieved 100% catch rate across 5 malicious attack types. Key finding: current frontier models self-disclose malicious intent when directly confronted, even when instructed to hide it.
-      </p>
-      <div class="project-stack">
-        <span class="stack-pill">Python</span>
-        <span class="stack-pill">Claude API</span>
-        <span class="stack-pill">GPT-4o</span>
-        <span class="stack-pill">OpenRouter</span>
-        <span class="stack-pill">LLM-as-Judge</span>
-        <span class="stack-pill">AI Safety</span>
-      </div>
-      <a href="https://github.com/asingh38-oss/interrogation-control-protocol" target="_blank" class="project-link">
-        View on GitHub
-        <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2.5 9.5L9.5 2.5M9.5 2.5H4.5M9.5 2.5V7.5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-      </a>
-    </div>
-
+    <!-- Home AI Monitor -->
     <div class="project-card">
       <span class="project-tag">AI / Computer Vision</span>
       <h3 class="project-title">Home AI Monitor v2</h3>
       <p class="project-desc">
-        A fully custom home security intelligence system built on a MacBook Pro. Uses OpenCV MOG2 for per-zone motion detection, Claude Vision API for scene analysis, Claude Haiku for natural-language querying, and Zigbee2MQTT for IoT sensor integration — all wired together with an async Python architecture and SQLite event store.
+        A fully custom home security intelligence system built on a MacBook Pro. Uses OpenCV MOG2 for per-zone motion detection, Claude Vision API for scene analysis, Claude Haiku for natural-language querying, and Zigbee2MQTT for IoT sensor integration — all wired together with an async Python architecture and SQLite event store. Coming soon.
       </p>
       <div class="project-stack">
         <span class="stack-pill">Python</span>
         <span class="stack-pill">OpenCV</span>
         <span class="stack-pill">Claude Vision API</span>
+        <span class="stack-pill">Claude Haiku</span>
         <span class="stack-pill">Zigbee2MQTT</span>
         <span class="stack-pill">SQLite</span>
+        <span class="stack-pill">RTSP</span>
         <span class="stack-pill">asyncio</span>
       </div>
       <span style="font-family: var(--mono); font-size: 11px; color: var(--muted); letter-spacing: 0.06em;">Private repository</span>
     </div>
 
+    <!-- Moodmetrics -->
     <div class="project-card">
       <span class="project-tag">AI / Hackathon</span>
       <h3 class="project-title">Moodmetrics</h3>
@@ -708,18 +712,22 @@
         <span class="stack-pill">React</span>
         <span class="stack-pill">TypeScript</span>
         <span class="stack-pill">Gemini API</span>
+        <span class="stack-pill">Vite</span>
       </div>
       <a href="https://github.com/BoonePool/emotion_AI" target="_blank" class="project-link">
         View on GitHub
-        <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2.5 9.5L9.5 2.5M9.5 2.5H4.5M9.5 2.5V7.5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
+          <path d="M2.5 9.5L9.5 2.5M9.5 2.5H4.5M9.5 2.5V7.5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
       </a>
     </div>
 
+    <!-- NotebookLM 2.0 -->
     <div class="project-card">
       <span class="project-tag">AI / Agentic Systems</span>
       <h3 class="project-title">NotebookLM 2.0</h3>
       <p class="project-desc">
-        An autonomous CLI coding assistant built around an agentic think-act-observe loop. Give it a task and it reasons over your codebase, reads and edits files, runs shell commands, and works until done. Supports OpenAI and Ollama provider switching at runtime, with a custom RAG server using HyDE for superior documentation retrieval.
+        An autonomous CLI coding assistant built around an agentic think-act-observe loop. Give it a task and it reasons over your codebase, reads and edits files, runs shell commands, and works until done. Supports OpenAI and Ollama provider switching at runtime, and connects to MCP servers — including a custom RAG server using HyDE (Hypothetical Document Embeddings) for superior documentation retrieval.
       </p>
       <div class="project-stack">
         <span class="stack-pill">Python</span>
@@ -728,18 +736,22 @@
         <span class="stack-pill">MCP</span>
         <span class="stack-pill">ChromaDB</span>
         <span class="stack-pill">HyDE / RAG</span>
+        <span class="stack-pill">Rich CLI</span>
       </div>
       <a href="https://github.com/asingh38-oss/notebooklm-2.0" target="_blank" class="project-link">
         View on GitHub
-        <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2.5 9.5L9.5 2.5M9.5 2.5H4.5M9.5 2.5V7.5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
+          <path d="M2.5 9.5L9.5 2.5M9.5 2.5H4.5M9.5 2.5V7.5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
       </a>
     </div>
 
+    <!-- Mock ECU -->
     <div class="project-card">
       <span class="project-tag">Embedded / Systems</span>
       <h3 class="project-title">Mock ECU</h3>
       <p class="project-desc">
-        A mock Electronic Control Unit built in Go simulating AUTOSAR software architecture concepts — modular runnable tasks, scheduling layers, and inter-component communication patterns mirroring real automotive software stack design. Developed collaboratively via GitHub.
+        A mock Electronic Control Unit built in Go simulating AUTOSAR software architecture concepts — modular runnable tasks, scheduling layers, and inter-component communication patterns mirroring real automotive software stack design. Developed collaboratively via GitHub with branching strategy and code reviews.
       </p>
       <div class="project-stack">
         <span class="stack-pill">Go</span>
@@ -749,16 +761,14 @@
       </div>
       <a href="https://github.com/asingh38-oss/AUTOSAR-Mock-ECU" target="_blank" class="project-link">
         View on GitHub
-        <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2.5 9.5L9.5 2.5M9.5 2.5H4.5M9.5 2.5V7.5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
+          <path d="M2.5 9.5L9.5 2.5M9.5 2.5H4.5M9.5 2.5V7.5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
       </a>
     </div>
 
   </div>
 </section>
-
-<hr class="full-divider">
-
-<!-- EXPERIENCE -->
 <section id="experience">
   <p class="section-label">Experience</p>
   <div class="timeline">
@@ -766,12 +776,12 @@
     <div class="timeline-item">
       <div class="timeline-date">Sep 2025 – Jan 2026</div>
       <div class="timeline-body">
-        <p class="timeline-role">Data & IT Intern</p>
+        <p class="timeline-role">Paid Intern</p>
         <p class="timeline-company">Primerica</p>
         <ul class="timeline-bullets">
-          <li>Executed systematic digital conversion and validation of client financial records with compliance to financial services data standards.</li>
-          <li>Analyzed and extracted structured data from documents into CRM databases; collaborated with IT team on CRM software workflows.</li>
-          <li>Implemented error-checking and validation protocols to maintain data integrity across large document processing pipelines.</li>
+          <li>Executed systematic document scanning and digital conversion of client financial records with validation protocols and error-checking.</li>
+          <li>Analyzed and extracted key data points from documents for entry into structured databases.</li>
+          <li>Collaborated with the IT team on CRM software and adhered to financial services compliance standards.</li>
         </ul>
       </div>
     </div>
@@ -779,7 +789,7 @@
     <div class="timeline-item">
       <div class="timeline-date">Summer 2022</div>
       <div class="timeline-body">
-        <p class="timeline-role">Software Engineering Intern</p>
+        <p class="timeline-role">Paid Intern</p>
         <p class="timeline-company">AIG</p>
         <ul class="timeline-bullets">
           <li>Partnered with software engineering team in Japan to enhance and maintain enterprise insurance database systems.</li>
@@ -796,17 +806,15 @@
         <p class="timeline-role">Server / Bartender</p>
         <p class="timeline-company">H2 Public House</p>
         <ul class="timeline-bullets">
-          <li>Managed high-volume service for 200+ patrons per night with consistent accuracy, composure under pressure, and strong cross-team communication.</li>
+          <li>Curated a satisfactory dining experience for 200+ patrons per night, managing high-volume service with consistent accuracy, composure under pressure, and strong cross-team communication.</li>
         </ul>
       </div>
-    </div>
-
   </div>
 </section>
 
 <hr class="full-divider">
 
-<!-- SKILLS -->
+<!-- EXPERIENCE -->
 <section id="skills">
   <p class="section-label">Skills</p>
   <div class="skills-grid">
@@ -878,153 +886,6 @@
 
 <hr class="full-divider">
 
-<!-- RESUME -->
-<section id="resume">
-  <div class="resume-header">
-    <p class="section-label" style="margin-bottom:0;">Resume</p>
-    <a href="Aditya_Singh_Resume.pdf" download class="btn-download">
-      <svg width="13" height="13" viewBox="0 0 13 13" fill="none"><path d="M6.5 1v8M6.5 9l-3-3M6.5 9l3-3M1 11.5h11" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg>
-      Download PDF
-    </a>
-  </div>
-
-  <div class="resume-card">
-
-    <!-- Header -->
-    <div class="resume-block">
-      <p class="resume-name">Aditya Singh</p>
-      <p class="resume-title-line">AI / MACHINE LEARNING ENGINEER</p>
-      <p class="resume-contact-line">704-858-3428 · adityaprof1786@gmail.com · asingh38-oss.github.io</p>
-    </div>
-
-    <!-- Profile -->
-    <div class="resume-block">
-      <p class="resume-block-label">Profile</p>
-      <p class="resume-profile">Computer Science senior (graduating May 2026) specializing in machine learning engineering. Experienced designing and deploying deep learning and generative AI systems end-to-end — from data pipelines and model training to production deployment on Linux and cloud infrastructure. Focused on large language models, fine-tuning, and scalable ML infrastructure, with foundational knowledge in RLHF, Constitutional AI, and interpretability.</p>
-    </div>
-
-    <!-- Education -->
-    <div class="resume-block">
-      <p class="resume-block-label">Education</p>
-      <div class="resume-job-header">
-        <span class="resume-job-title">B.S. Computer Science · Systems &amp; Networks</span>
-        <span class="resume-job-date">Expected May 2026</span>
-      </div>
-      <p class="resume-job-company">University of North Carolina at Charlotte · GPA: 3.4</p>
-    </div>
-
-    <!-- Skills -->
-    <div class="resume-block">
-      <p class="resume-block-label">Technical Skills</p>
-      <div class="resume-skills-grid">
-        <div class="resume-skill-row">
-          <span class="resume-skill-cat">Languages</span>
-          <span class="resume-skill-val">Python, Go, Java, JavaScript, C/C++, HTML/CSS, SQL</span>
-        </div>
-        <div class="resume-skill-row">
-          <span class="resume-skill-cat">ML / AI</span>
-          <span class="resume-skill-val">PyTorch, TensorFlow, Keras, Hugging Face Transformers, Scikit-learn, deep learning, computer vision, NLP, LLM fine-tuning, RLHF, RAG pipelines, generative AI, MLOps</span>
-        </div>
-        <div class="resume-skill-row">
-          <span class="resume-skill-cat">Infrastructure</span>
-          <span class="resume-skill-val">Docker, Linux (WSL2/Ubuntu), GitHub Actions (CI/CD), ChromaDB, Gradio, Hugging Face Spaces, AWS, Tailscale, model deployment</span>
-        </div>
-        <div class="resume-skill-row">
-          <span class="resume-skill-cat">Data &amp; Tools</span>
-          <span class="resume-skill-val">Git/GitHub, NumPy, data pipelines, ETL, VS Code, KNIME</span>
-        </div>
-        <div class="resume-skill-row">
-          <span class="resume-skill-cat">Concepts</span>
-          <span class="resume-skill-val">Transformer architecture, Constitutional AI, scalable ML systems, AUTOSAR, REST APIs</span>
-        </div>
-      </div>
-    </div>
-
-    <!-- Projects -->
-    <div class="resume-block">
-      <p class="resume-block-label">Projects</p>
-
-      <div class="resume-project">
-        <p class="resume-project-name">Interrogation Control Protocol · Apart Research AI Control Hackathon</p>
-        <p class="resume-project-stack">Python · Claude API · GPT-4o · OpenRouter · LLM-as-Judge · March 2026</p>
-        <ul class="resume-bullets">
-          <li>Designed and evaluated an interrogation-before-execution control protocol achieving 100% catch rate across 5 malicious attack types: credential exfiltration, reverse shells, key harvesting, secret scraping, and cron persistence.</li>
-          <li>Built an LLM-as-judge architecture where a trusted monitor interrogates an untrusted agent with targeted questions before approving any bash command; ran cross-model comparison using Claude and GPT-4o as monitors.</li>
-          <li>Key finding: current frontier models self-disclose malicious intent under direct interrogation even when instructed to conceal side goals.</li>
-        </ul>
-      </div>
-
-      <div class="resume-project">
-        <p class="resume-project-name">MoodMetrics · Audience Emotion Intelligence Platform</p>
-        <p class="resume-project-stack">Python · OpenCV · MediaPipe · TensorFlow/FER · React · TypeScript · Gemini API · 2025</p>
-        <ul class="resume-bullets">
-          <li>Built a real-time audience analytics platform using computer vision to capture facial emotion signals and attention states from webcam feeds during live presentations.</li>
-          <li>Engineered Python client using OpenCV, MediaPipe FaceMesh, and FER/TensorFlow for deep learning-based emotion classification; integrated Gemini API for coaching summaries.</li>
-        </ul>
-      </div>
-
-      <div class="resume-project">
-        <p class="resume-project-name">Mock ECU · AUTOSAR-Inspired Embedded System</p>
-        <p class="resume-project-stack">Go 1.24 · WSL2 · GitHub · 2025</p>
-        <ul class="resume-bullets">
-          <li>Co-developed a mock Electronic Control Unit in Go simulating AUTOSAR software architecture concepts including modular runnable tasks and scheduling layers.</li>
-        </ul>
-      </div>
-
-      <div class="resume-project">
-        <p class="resume-project-name">Home AI Security System</p>
-        <p class="resume-project-stack">Docker · Frigate · Home Assistant · Tailscale · 2025</p>
-        <ul class="resume-bullets">
-          <li>Architected a self-hosted security stack using Frigate for AI-powered object detection across an 8-camera system; configured Tailscale VPN mesh for secure remote access.</li>
-        </ul>
-      </div>
-    </div>
-
-    <!-- Experience -->
-    <div class="resume-block">
-      <p class="resume-block-label">Experience</p>
-
-      <div class="resume-job">
-        <div class="resume-job-header">
-          <span class="resume-job-title">Data & IT Intern</span>
-          <span class="resume-job-date">Sep 2025 – Jan 2026</span>
-        </div>
-        <p class="resume-job-company">Primerica</p>
-        <ul class="resume-bullets">
-          <li>Executed systematic digital conversion and validation of client financial records with compliance to financial services data standards.</li>
-          <li>Analyzed and extracted structured data from documents into CRM databases; implemented error-checking and validation protocols.</li>
-        </ul>
-      </div>
-
-      <div class="resume-job">
-        <div class="resume-job-header">
-          <span class="resume-job-title">Software Engineering Intern</span>
-          <span class="resume-job-date">Summer 2022</span>
-        </div>
-        <p class="resume-job-company">AIG</p>
-        <ul class="resume-bullets">
-          <li>Partnered with Japan-based engineering team to maintain enterprise insurance database systems; engineered optimized SQL queries and Python ETL automation scripts.</li>
-          <li>Participated in cross-timezone daily standups; documented technical processes for US-Japan knowledge transfer.</li>
-        </ul>
-      </div>
-
-      <div class="resume-job">
-        <div class="resume-job-header">
-          <span class="resume-job-title">Server / Bartender</span>
-          <span class="resume-job-date">Aug 2024 – Present</span>
-        </div>
-        <p class="resume-job-company">H2 Public House</p>
-        <ul class="resume-bullets">
-          <li>Managed high-volume service for 200+ patrons per night with consistent accuracy and composure under pressure.</li>
-        </ul>
-      </div>
-    </div>
-
-  </div>
-</section>
-
-<hr class="full-divider">
-
 <!-- CONTACT -->
 <section id="contact">
   <div class="contact-inner">
@@ -1034,7 +895,7 @@
       The best engineering problems aren't solved in a quarter; great AI is architected with intention, built to outlast the hype. I'm looking for a team where the architecture decisions made today are still the right ones three years from now. If you're building with that mindset, I'd love to connect.
     </p>
     <div class="contact-links">
-      <a href="mailto:adityaprof1786@gmail.com" class="contact-link">
+      <a href="#" onclick="window.location.href='mailto:adityaprof1786@gmail.com';return false;" class="contact-link">
         <span class="contact-link-label">Email</span>
         adityaprof1786@gmail.com
       </a>
@@ -1042,7 +903,7 @@
         <span class="contact-link-label">Phone</span>
         704-858-3428
       </a>
-      <a href="https://github.com/asingh38-oss" target="_blank" class="contact-link">
+      <a href="https://github.com/asingh38-oss" target="_blank"      <a href="https://github.com/asingh38-oss" target="_blank" class="contact-link">
         <span class="contact-link-label">GitHub</span>
         github.com/asingh38-oss
       </a>
@@ -1070,6 +931,23 @@
   }
   const saved = localStorage.getItem('theme') || 'auto';
   setTheme(saved);
+
+  function toggleMenu() {
+    const nav = document.getElementById('nav-links');
+    const btn = document.getElementById('hamburger');
+    nav.classList.toggle('open');
+    btn.classList.toggle('open');
+  }
+
+  // close menu when a link is clicked
+  document.addEventListener('DOMContentLoaded', function() {
+    document.querySelectorAll('.nav-links a').forEach(link => {
+      link.addEventListener('click', function() {
+        document.getElementById('nav-links').classList.remove('open');
+        document.getElementById('hamburger').classList.remove('open');
+      });
+    });
+  });
 </script>
 
 </body>
