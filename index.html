@@ -9,611 +9,119 @@
 <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
   :root {
-    --bg: #fafaf8;
-    --surface: #ffffff;
-    --text: #1a1a18;
-    --muted: #6b6b66;
-    --faint: #e8e8e4;
-    --accent: #1a1a18;
-    --accent-light: #f0ede8;
-    --green: #2d6a4f;
-    --green-bg: #eaf4ee;
+    --bg: #fafaf8; --surface: #ffffff; --text: #1a1a18; --muted: #6b6b66;
+    --faint: #e8e8e4; --accent: #1a1a18; --accent-light: #f0ede8;
+    --green: #2d6a4f; --green-bg: #eaf4ee;
     --serif: 'DM Serif Display', Georgia, serif;
     --sans: 'DM Sans', system-ui, sans-serif;
     --mono: 'DM Mono', monospace;
   }
-
-
   [data-theme="dark"] {
-    --bg: #111110;
-    --surface: #1a1a18;
-    --text: #e8e8e4;
-    --muted: #8a8a84;
-    --faint: #2a2a28;
-    --accent: #e8e8e4;
-    --accent-light: #222220;
-    --green: #5dba8a;
-    --green-bg: #0e2e1e;
+    --bg: #111110; --surface: #1a1a18; --text: #e8e8e4; --muted: #8a8a84;
+    --faint: #2a2a28; --accent: #e8e8e4; --accent-light: #222220;
+    --green: #5dba8a; --green-bg: #0e2e1e;
   }
-
   @media (prefers-color-scheme: dark) {
     [data-theme="auto"] {
-      --bg: #111110;
-      --surface: #1a1a18;
-      --text: #e8e8e4;
-      --muted: #8a8a84;
-      --faint: #2a2a28;
-      --accent: #e8e8e4;
-      --accent-light: #222220;
-      --green: #5dba8a;
-      --green-bg: #0e2e1e;
+      --bg: #111110; --surface: #1a1a18; --text: #e8e8e4; --muted: #8a8a84;
+      --faint: #2a2a28; --accent: #e8e8e4; --accent-light: #222220;
+      --green: #5dba8a; --green-bg: #0e2e1e;
     }
   }
-
-  [data-theme="dark"] nav { background: rgba(17, 17, 16, 0.88); }
-  @media (prefers-color-scheme: dark) {
-    [data-theme="auto"] nav { background: rgba(17, 17, 16, 0.88); }
-  }
+  [data-theme="dark"] nav { background: rgba(17,17,16,0.88); }
+  @media (prefers-color-scheme: dark) { [data-theme="auto"] nav { background: rgba(17,17,16,0.88); } }
   html { scroll-behavior: smooth; }
-
-  body {
-    font-family: var(--sans);
-    background: var(--bg);
-    color: var(--text);
-    font-size: 16px;
-    line-height: 1.7;
-    font-weight: 300;
-  }
-
-  /* NAV */
-  nav {
-    position: fixed;
-    top: 0; left: 0; right: 0;
-    z-index: 100;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 1.25rem 3rem;
-    background: rgba(250, 250, 248, 0.88);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    border-bottom: 1px solid var(--faint);
-  }
-
-  .nav-logo {
-    font-family: var(--mono);
-    font-size: 13px;
-    font-weight: 500;
-    letter-spacing: 0.08em;
-    color: var(--text);
-    text-decoration: none;
-  }
-
-  .nav-links {
-    display: flex;
-    gap: 2.5rem;
-    list-style: none;
-  }
-
-  .nav-links a {
-    font-size: 13px;
-    font-weight: 400;
-    color: var(--muted);
-    text-decoration: none;
-    letter-spacing: 0.04em;
-    transition: color 0.2s;
-  }
-
+  body { font-family: var(--sans); background: var(--bg); color: var(--text); font-size: 16px; line-height: 1.7; font-weight: 300; }
+  nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; align-items: center; justify-content: space-between; padding: 1.25rem 3rem; background: rgba(250,250,248,0.88); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border-bottom: 1px solid var(--faint); }
+  .nav-logo { font-family: var(--mono); font-size: 13px; font-weight: 500; letter-spacing: 0.08em; color: var(--text); text-decoration: none; }
+  .nav-links { display: flex; gap: 2.5rem; list-style: none; }
+  .nav-links a { font-size: 13px; font-weight: 400; color: var(--muted); text-decoration: none; letter-spacing: 0.04em; transition: color 0.2s; }
   .nav-links a:hover { color: var(--text); }
-
-  /* HERO */
-  .hero {
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-    padding: 8rem 3rem 4rem;
-    max-width: 1100px;
-    margin: 0 auto;
-  }
-
-  .hero-inner {
-    max-width: 680px;
-  }
-
-  .hero-tag {
-    font-family: var(--mono);
-    font-size: 12px;
-    letter-spacing: 0.12em;
-    color: var(--green);
-    background: var(--green-bg);
-    display: inline-block;
-    padding: 4px 12px;
-    border-radius: 2px;
-    margin-bottom: 2rem;
-    font-weight: 500;
-  }
-
-  .hero h1 {
-    font-family: var(--serif);
-    font-size: clamp(3rem, 6vw, 5.5rem);
-    line-height: 1.05;
-    letter-spacing: -0.01em;
-    margin-bottom: 1.5rem;
-    font-weight: 400;
-  }
-
-  .hero h1 em {
-    font-style: italic;
-    color: var(--muted);
-  }
-
-  .hero-bio {
-    font-size: 1.05rem;
-    color: var(--muted);
-    max-width: 520px;
-    margin-bottom: 2.5rem;
-    line-height: 1.8;
-  }
-
-  .hero-actions {
-    display: flex;
-    gap: 1rem;
-    flex-wrap: wrap;
-  }
-
-  .btn {
-    display: inline-block;
-    padding: 0.75rem 1.75rem;
-    border-radius: 2px;
-    font-size: 13px;
-    font-weight: 500;
-    letter-spacing: 0.06em;
-    text-decoration: none;
-    transition: all 0.2s;
-  }
-
-  .btn-primary {
-    background: var(--text);
-    color: var(--bg);
-  }
-
-  .btn-primary:hover {
-    background: #333;
-  }
-
-  .btn-ghost {
-    background: transparent;
-    color: var(--text);
-    border: 1px solid var(--faint);
-  }
-
-  .btn-ghost:hover {
-    border-color: var(--text);
-  }
-
-  /* SECTIONS */
-  section {
-    padding: 6rem 3rem;
-    max-width: 1100px;
-    margin: 0 auto;
-  }
-
-  .section-label {
-    font-family: var(--mono);
-    font-size: 11px;
-    letter-spacing: 0.14em;
-    color: var(--muted);
-    text-transform: uppercase;
-    margin-bottom: 3rem;
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-  }
-
-  .section-label::after {
-    content: '';
-    flex: 1;
-    height: 1px;
-    background: var(--faint);
-    max-width: 80px;
-  }
-
-  /* PROJECTS */
-  .projects-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 1.5px;
-    background: var(--faint);
-    border: 1.5px solid var(--faint);
-  }
-
-  .project-card {
-    background: var(--surface);
-    padding: 2.5rem;
-    transition: background 0.2s;
-    position: relative;
-  }
-
-  .project-card:hover {
-    background: var(--accent-light);
-  }
-
-  .project-tag {
-    font-family: var(--mono);
-    font-size: 11px;
-    letter-spacing: 0.1em;
-    color: var(--green);
-    background: var(--green-bg);
-    display: inline-block;
-    padding: 3px 8px;
-    border-radius: 2px;
-    margin-bottom: 1.25rem;
-  }
-
-  .project-title {
-    font-family: var(--serif);
-    font-size: 1.5rem;
-    font-weight: 400;
-    margin-bottom: 0.75rem;
-    line-height: 1.2;
-  }
-
-  .project-desc {
-    font-size: 0.9rem;
-    color: var(--muted);
-    line-height: 1.7;
-    margin-bottom: 1.5rem;
-  }
-
-  .project-stack {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.5rem;
-    margin-bottom: 1.5rem;
-  }
-
-  .stack-pill {
-    font-family: var(--mono);
-    font-size: 11px;
-    padding: 3px 9px;
-    border: 1px solid var(--faint);
-    border-radius: 2px;
-    color: var(--muted);
-  }
-
-  .project-link {
-    font-size: 12px;
-    font-weight: 500;
-    letter-spacing: 0.06em;
-    color: var(--text);
-    text-decoration: none;
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-  }
-
+  .hero { min-height: 100vh; display: flex; align-items: center; padding: 8rem 3rem 4rem; max-width: 1100px; margin: 0 auto; }
+  .hero-inner { max-width: 680px; }
+  .hero-tag { font-family: var(--mono); font-size: 12px; letter-spacing: 0.12em; color: var(--green); background: var(--green-bg); display: inline-block; padding: 4px 12px; border-radius: 2px; margin-bottom: 2rem; font-weight: 500; }
+  .hero h1 { font-family: var(--serif); font-size: clamp(3rem,6vw,5.5rem); line-height: 1.05; letter-spacing: -0.01em; margin-bottom: 1.5rem; font-weight: 400; }
+  .hero h1 em { font-style: italic; color: var(--muted); }
+  .hero-bio { font-size: 1.05rem; color: var(--muted); max-width: 520px; margin-bottom: 2.5rem; line-height: 1.8; }
+  .hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; }
+  .btn { display: inline-block; padding: 0.75rem 1.75rem; border-radius: 2px; font-size: 13px; font-weight: 500; letter-spacing: 0.06em; text-decoration: none; transition: all 0.2s; }
+  .btn-primary { background: var(--text); color: var(--bg); }
+  .btn-primary:hover { background: #333; }
+  .btn-ghost { background: transparent; color: var(--text); border: 1px solid var(--faint); }
+  .btn-ghost:hover { border-color: var(--text); }
+  section { padding: 6rem 3rem; max-width: 1100px; margin: 0 auto; }
+  .section-label { font-family: var(--mono); font-size: 11px; letter-spacing: 0.14em; color: var(--muted); text-transform: uppercase; margin-bottom: 3rem; display: flex; align-items: center; gap: 1rem; }
+  .section-label::after { content: ''; flex: 1; height: 1px; background: var(--faint); max-width: 80px; }
+  .projects-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5px; background: var(--faint); border: 1.5px solid var(--faint); }
+  .project-card { background: var(--surface); padding: 2.5rem; transition: background 0.2s; position: relative; }
+  .project-card:hover { background: var(--accent-light); }
+  .project-tag { font-family: var(--mono); font-size: 11px; letter-spacing: 0.1em; color: var(--green); background: var(--green-bg); display: inline-block; padding: 3px 8px; border-radius: 2px; margin-bottom: 1.25rem; }
+  .project-title { font-family: var(--serif); font-size: 1.5rem; font-weight: 400; margin-bottom: 0.75rem; line-height: 1.2; }
+  .project-desc { font-size: 0.9rem; color: var(--muted); line-height: 1.7; margin-bottom: 1.5rem; }
+  .project-stack { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1.5rem; }
+  .stack-pill { font-family: var(--mono); font-size: 11px; padding: 3px 9px; border: 1px solid var(--faint); border-radius: 2px; color: var(--muted); }
+  .project-link { font-size: 12px; font-weight: 500; letter-spacing: 0.06em; color: var(--text); text-decoration: none; display: inline-flex; align-items: center; gap: 6px; }
   .project-link:hover { text-decoration: underline; }
-
   .project-link svg { transition: transform 0.2s; }
-  .project-link:hover svg { transform: translate(2px, -2px); }
-
-  /* COMING SOON CARD */
-  .project-card.placeholder {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    justify-content: center;
-    border: 1.5px dashed var(--faint);
-    background: var(--bg);
-  }
-
-  .placeholder-icon {
-    font-size: 1.5rem;
-    margin-bottom: 1rem;
-    opacity: 0.3;
-  }
-
-  /* EXPERIENCE */
-  .timeline {
-    display: grid;
-    grid-template-columns: 180px 1fr;
-    gap: 0 3rem;
-  }
-
-  .timeline-item {
-    display: contents;
-  }
-
-  .timeline-date {
-    font-family: var(--mono);
-    font-size: 12px;
-    color: var(--muted);
-    padding-top: 0.2rem;
-    letter-spacing: 0.04em;
-  }
-
-  .timeline-body {
-    padding-bottom: 3rem;
-    border-bottom: 1px solid var(--faint);
-    margin-bottom: 3rem;
-  }
-
-  .timeline-item:last-child .timeline-body {
-    border-bottom: none;
-    margin-bottom: 0;
-    padding-bottom: 0;
-  }
-
-  .timeline-role {
-    font-weight: 500;
-    font-size: 1rem;
-    margin-bottom: 0.2rem;
-  }
-
-  .timeline-company {
-    font-size: 0.85rem;
-    color: var(--muted);
-    margin-bottom: 0.75rem;
-  }
-
-  .timeline-bullets {
-    list-style: none;
-    padding: 0;
-  }
-
-  .timeline-bullets li {
-    font-size: 0.9rem;
-    color: var(--muted);
-    padding-left: 1rem;
-    position: relative;
-    margin-bottom: 0.4rem;
-    line-height: 1.6;
-  }
-
-  .timeline-bullets li::before {
-    content: '—';
-    position: absolute;
-    left: 0;
-    color: var(--faint);
-  }
-
-  /* SKILLS */
-  .skills-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-    gap: 1.5rem;
-  }
-
-  .skill-group {
-    padding: 1.75rem;
-    border: 1px solid var(--faint);
-    border-radius: 2px;
-  }
-
-  .skill-group-title {
-    font-family: var(--mono);
-    font-size: 11px;
-    letter-spacing: 0.1em;
-    color: var(--muted);
-    margin-bottom: 1rem;
-    text-transform: uppercase;
-  }
-
-  .skill-tags {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.5rem;
-  }
-
-  .skill-tag {
-    font-size: 13px;
-    font-weight: 400;
-    color: var(--text);
-    background: var(--accent-light);
-    padding: 4px 12px;
-    border-radius: 2px;
-  }
-
-  /* EDUCATION */
-  .edu-card {
-    padding: 2rem;
-    border: 1px solid var(--faint);
-    border-radius: 2px;
-    display: flex;
-    gap: 2rem;
-    align-items: flex-start;
-    max-width: 560px;
-  }
-
-  .edu-year {
-    font-family: var(--mono);
-    font-size: 12px;
-    color: var(--muted);
-    white-space: nowrap;
-    padding-top: 0.2rem;
-  }
-
-  .edu-degree {
-    font-family: var(--serif);
-    font-size: 1.25rem;
-    font-weight: 400;
-    margin-bottom: 0.3rem;
-  }
-
-  .edu-school {
-    font-size: 0.9rem;
-    color: var(--muted);
-  }
-
-  /* CONTACT */
-  .contact-inner {
-    max-width: 560px;
-  }
-
-  .contact-heading {
-    font-family: var(--serif);
-    font-size: clamp(2rem, 4vw, 3.5rem);
-    font-weight: 400;
-    line-height: 1.1;
-    margin-bottom: 1.5rem;
-  }
-
-  .contact-heading em {
-    font-style: italic;
-    color: var(--muted);
-  }
-
-  .contact-sub {
-    font-size: 0.95rem;
-    color: var(--muted);
-    margin-bottom: 2.5rem;
-    line-height: 1.8;
-  }
-
-  .contact-links {
-    display: flex;
-    flex-direction: column;
-    gap: 0.75rem;
-  }
-
-  .contact-link {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-    text-decoration: none;
-    color: var(--text);
-    font-size: 0.9rem;
-    padding: 0.75rem 1rem;
-    border: 1px solid var(--faint);
-    border-radius: 2px;
-    transition: all 0.2s;
-  }
-
-  .contact-link:hover {
-    border-color: var(--text);
-    background: var(--accent-light);
-  }
-
-  .contact-link-label {
-    font-family: var(--mono);
-    font-size: 11px;
-    color: var(--muted);
-    letter-spacing: 0.08em;
-    min-width: 60px;
-  }
-
-  /* FOOTER */
-  footer {
-    border-top: 1px solid var(--faint);
-    padding: 2rem 3rem;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    max-width: 1100px;
-    margin: 0 auto;
-  }
-
-  footer p {
-    font-family: var(--mono);
-    font-size: 12px;
-    color: var(--muted);
-  }
-
-  /* DIVIDER */
-  .full-divider {
-    border: none;
-    border-top: 1px solid var(--faint);
-  }
-
-  @media (max-width: 700px) {
-    nav { padding: 1rem 1.5rem; }
-    .nav-links { gap: 1.5rem; }
-    section { padding: 4rem 1.5rem; }
-    .hero { padding: 7rem 1.5rem 3rem; }
-    .timeline { grid-template-columns: 1fr; gap: 0; }
-    .timeline-date { margin-bottom: 0.25rem; }
-    footer { padding: 1.5rem; flex-direction: column; gap: 0.5rem; text-align: center; }
-  }
-
-  .theme-toggle {
-    display: flex;
-    align-items: center;
-    gap: 2px;
-    background: var(--faint);
-    border-radius: 4px;
-    padding: 3px;
-    margin-left: 1.5rem;
-  }
-  .theme-btn {
-    font-family: var(--mono);
-    font-size: 11px;
-    font-weight: 500;
-    letter-spacing: 0.06em;
-    color: var(--muted);
-    background: transparent;
-    border: none;
-    padding: 4px 10px;
-    border-radius: 3px;
-    cursor: pointer;
-    transition: all 0.15s;
-  }
+  .project-link:hover svg { transform: translate(2px,-2px); }
+  .timeline { display: grid; grid-template-columns: 180px 1fr; gap: 0 3rem; }
+  .timeline-item { display: contents; }
+  .timeline-date { font-family: var(--mono); font-size: 12px; color: var(--muted); padding-top: 0.2rem; letter-spacing: 0.04em; }
+  .timeline-body { padding-bottom: 3rem; border-bottom: 1px solid var(--faint); margin-bottom: 3rem; }
+  .timeline-item:last-child .timeline-body { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+  .timeline-role { font-weight: 500; font-size: 1rem; margin-bottom: 0.2rem; }
+  .timeline-company { font-size: 0.85rem; color: var(--muted); margin-bottom: 0.75rem; }
+  .timeline-bullets { list-style: none; padding: 0; }
+  .timeline-bullets li { font-size: 0.9rem; color: var(--muted); padding-left: 1rem; position: relative; margin-bottom: 0.4rem; line-height: 1.6; }
+  .timeline-bullets li::before { content: '—'; position: absolute; left: 0; color: var(--faint); }
+  .skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1.5rem; }
+  .skill-group { padding: 1.75rem; border: 1px solid var(--faint); border-radius: 2px; }
+  .skill-group-title { font-family: var(--mono); font-size: 11px; letter-spacing: 0.1em; color: var(--muted); margin-bottom: 1rem; text-transform: uppercase; }
+  .skill-tags { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+  .skill-tag { font-size: 13px; font-weight: 400; color: var(--text); background: var(--accent-light); padding: 4px 12px; border-radius: 2px; }
+  .contact-inner { max-width: 560px; }
+  .contact-heading { font-family: var(--serif); font-size: clamp(2rem,4vw,3.5rem); font-weight: 400; line-height: 1.1; margin-bottom: 1.5rem; }
+  .contact-heading em { font-style: italic; color: var(--muted); }
+  .contact-sub { font-size: 0.95rem; color: var(--muted); margin-bottom: 2.5rem; line-height: 1.8; }
+  .contact-links { display: flex; flex-direction: column; gap: 0.75rem; }
+  .contact-link { display: flex; align-items: center; gap: 1rem; text-decoration: none; color: var(--text); font-size: 0.9rem; padding: 0.75rem 1rem; border: 1px solid var(--faint); border-radius: 2px; transition: all 0.2s; }
+  .contact-link:hover { border-color: var(--text); background: var(--accent-light); }
+  .contact-link-label { font-family: var(--mono); font-size: 11px; color: var(--muted); letter-spacing: 0.08em; min-width: 60px; }
+  footer { border-top: 1px solid var(--faint); padding: 2rem 3rem; display: flex; justify-content: space-between; align-items: center; max-width: 1100px; margin: 0 auto; }
+  footer p { font-family: var(--mono); font-size: 12px; color: var(--muted); }
+  .full-divider { border: none; border-top: 1px solid var(--faint); }
+  .theme-toggle { display: flex; align-items: center; gap: 2px; background: var(--faint); border-radius: 4px; padding: 3px; margin-left: 1.5rem; }
+  .theme-btn { font-family: var(--mono); font-size: 11px; font-weight: 500; letter-spacing: 0.06em; color: var(--muted); background: transparent; border: none; padding: 4px 10px; border-radius: 3px; cursor: pointer; transition: all 0.15s; }
   .theme-btn:hover { color: var(--text); }
-  .theme-btn.active {
-    background: var(--surface);
-    color: var(--text);
-    box-shadow: 0 1px 3px rgba(0,0,0,0.15);
-  }
-  .hamburger {
-    display: none;
-    flex-direction: column;
-    gap: 5px;
-    cursor: pointer;
-    background: none;
-    border: none;
-    padding: 4px;
-  }
-  .hamburger span {
-    display: block;
-    width: 22px;
-    height: 2px;
-    background: var(--text);
-    border-radius: 2px;
-    transition: all 0.25s;
-  }
+  .theme-btn.active { background: var(--surface); color: var(--text); box-shadow: 0 1px 3px rgba(0,0,0,0.15); }
+  .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; background: none; border: none; padding: 4px; }
+  .hamburger span { display: block; width: 22px; height: 2px; background: var(--text); border-radius: 2px; transition: all 0.25s; }
   .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
   .hamburger.open span:nth-child(2) { opacity: 0; }
   .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
   @media (max-width: 700px) {
     nav { padding: 1rem 1.5rem; flex-wrap: wrap; }
     .hamburger { display: flex; }
-    .nav-links {
-      display: none;
-      flex-direction: column;
-      gap: 0;
-      width: 100%;
-      order: 3;
-      border-top: 1px solid var(--faint);
-      margin-top: 0.75rem;
-      padding-top: 0.75rem;
-    }
+    .nav-links { display: none; flex-direction: column; gap: 0; width: 100%; order: 3; border-top: 1px solid var(--faint); margin-top: 0.75rem; padding-top: 0.75rem; }
     .nav-links.open { display: flex; }
     .nav-links li { padding: 0.6rem 0; }
     .nav-links a { font-size: 16px; }
     .theme-toggle { margin-left: auto; margin-right: 0.75rem; }
+    section { padding: 4rem 1.5rem; }
+    .hero { padding: 7rem 1.5rem 3rem; }
+    .timeline { grid-template-columns: 1fr; gap: 0; }
+    .timeline-date { margin-bottom: 0.25rem; }
+    footer { padding: 1.5rem; flex-direction: column; gap: 0.5rem; text-align: center; }
   }
 </style>
 </head>
 <body>
 
-<!-- NAV -->
 <nav>
   <a href="#" class="nav-logo">AS</a>
   <button class="hamburger" id="hamburger" onclick="toggleMenu()" aria-label="Toggle menu">
-    <span></span>
-    <span></span>
-    <span></span>
+    <span></span><span></span><span></span>
   </button>
   <ul class="nav-links" id="nav-links">
     <li><a href="#projects">Projects</a></li>
@@ -628,14 +136,11 @@
   </div>
 </nav>
 
-<!-- HERO -->
 <div class="hero">
   <div class="hero-inner">
     <span class="hero-tag">Available for opportunities</span>
     <h1>Aditya<br>Singh<em>.</em></h1>
-    <p class="hero-bio">
-      Computer Science graduate, May 2026, specializing in machine learning engineering. Experienced designing and deploying deep learning and generative AI systems end-to-end — from data pipelines and model training to production deployment. Focused on large language models, fine-tuning, and scalable ML infrastructure.
-    </p>
+    <p class="hero-bio">Computer Science graduate, May 2026, specializing in machine learning engineering. Experienced designing and deploying deep learning and generative AI systems end-to-end — from data pipelines and model training to production deployment. Focused on large language models, fine-tuning, and scalable ML infrastructure.</p>
     <div class="hero-actions">
       <a href="#projects" class="btn btn-primary">View projects</a>
       <a href="https://github.com/asingh38-oss" target="_blank" class="btn btn-ghost">GitHub</a>
@@ -647,18 +152,37 @@
 
 <hr class="full-divider">
 
-<!-- PROJECTS -->
 <section id="projects">
   <p class="section-label">Projects</p>
   <div class="projects-grid">
+
+    <!-- MARL Lunar Coordination Framework -->
+    <div class="project-card">
+      <span class="project-tag">ML / Robotics</span>
+      <h3 class="project-title">MARL Lunar Coordination Framework</h3>
+      <p class="project-desc">
+        Three cooperative agents learn to cover target positions on a 2D map using multi-agent PPO with a shared policy. The interesting part is the communication layer — you can configure packet loss, observation latency, and mid-mission agent failure to simulate real lunar radio constraints. Includes a predictive digital twin that logs full trajectories and flags collision risks before they happen using kinematic lookahead.
+      </p>
+      <div class="project-stack">
+        <span class="stack-pill">Python</span>
+        <span class="stack-pill">PyTorch</span>
+        <span class="stack-pill">PettingZoo</span>
+        <span class="stack-pill">PPO</span>
+        <span class="stack-pill">Digital Twin</span>
+      </div>
+      <a href="https://github.com/asingh38-oss/marl-lunar-coordination" target="_blank" class="project-link">
+        View on GitHub
+        <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
+          <path d="M2.5 9.5L9.5 2.5M9.5 2.5H4.5M9.5 2.5V7.5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </a>
+    </div>
 
     <!-- Home AI Monitor -->
     <div class="project-card">
       <span class="project-tag">AI / Computer Vision</span>
       <h3 class="project-title">Home AI Monitor v2</h3>
-      <p class="project-desc">
-        A fully custom home security intelligence system built on a MacBook Pro. Uses OpenCV MOG2 for per-zone motion detection, Claude Vision API for scene analysis, Claude Haiku for natural-language querying, and Zigbee2MQTT for IoT sensor integration — all wired together with an async Python architecture and SQLite event store.
-      </p>
+      <p class="project-desc">A fully custom home security intelligence system built on a MacBook Pro. Uses OpenCV MOG2 for per-zone motion detection, Claude Vision API for scene analysis, Claude Haiku for natural-language querying, and Zigbee2MQTT for IoT sensor integration — all wired together with an async Python architecture and SQLite event store.</p>
       <div class="project-stack">
         <span class="stack-pill">Python</span>
         <span class="stack-pill">OpenCV</span>
@@ -666,7 +190,6 @@
         <span class="stack-pill">Claude Haiku</span>
         <span class="stack-pill">Zigbee2MQTT</span>
         <span class="stack-pill">SQLite</span>
-        <span class="stack-pill">RTSP</span>
         <span class="stack-pill">asyncio</span>
       </div>
       <a href="https://github.com/asingh38-oss/Home-AI-Monitor" target="_blank" class="project-link">
@@ -681,9 +204,7 @@
     <div class="project-card">
       <span class="project-tag">AI / Hackathon</span>
       <h3 class="project-title">Moodmetrics</h3>
-      <p class="project-desc">
-        A real-time audience analytics platform built for presenters. Each audience member runs a webcam client that captures facial emotion signals and attention states, then uploads timestamped JSON to a central GitHub repo using a token-based system. At the end of the presentation, an API call aggregates all the logs and generates a full coaching report. A React dashboard visualizes where attention dropped and where emotion spiked, with Gemini API turning the raw data into actionable feedback.
-      </p>
+      <p class="project-desc">A real-time audience analytics platform built for presenters. Each audience member runs a webcam client that captures facial emotion signals and attention states, then uploads timestamped JSON to a central GitHub repo. At the end, an API call aggregates all the logs and generates a full coaching report. A React dashboard visualizes where attention dropped and where emotion spiked, with Gemini API turning raw data into actionable feedback.</p>
       <div class="project-stack">
         <span class="stack-pill">Python</span>
         <span class="stack-pill">OpenCV</span>
@@ -692,7 +213,6 @@
         <span class="stack-pill">React</span>
         <span class="stack-pill">TypeScript</span>
         <span class="stack-pill">Gemini API</span>
-        <span class="stack-pill">Vite</span>
       </div>
       <a href="https://github.com/asingh38-oss/MoodMetrics" target="_blank" class="project-link">
         View on GitHub
@@ -706,9 +226,7 @@
     <div class="project-card">
       <span class="project-tag">AI / Capstone</span>
       <h3 class="project-title">MDM Match and Merge Engine</h3>
-      <p class="project-desc">
-        Honeywell x UNC Charlotte Capstone. A matching engine that finds duplicate customer records in Honeywell's MDM system, handling multilingual company names, address variations, typos, and abbreviations. Records go through a preprocessing pipeline (language detection, translation, LLM abbreviation expansion), get encoded as FAISS embeddings to find candidate pairs, then pass through a 5-level matching engine that outputs a confidence score from 0 to 100 with a plain English explanation.
-      </p>
+      <p class="project-desc">Honeywell x UNC Charlotte Capstone. A matching engine that finds duplicate customer records in Honeywell's MDM system, handling multilingual company names, address variations, typos, and abbreviations. Records go through a preprocessing pipeline (language detection, translation, LLM abbreviation expansion), get encoded as FAISS embeddings to find candidate pairs, then pass through a 5-level matching engine that outputs a 0–100 confidence score with plain English explanation.</p>
       <div class="project-stack">
         <span class="stack-pill">Python</span>
         <span class="stack-pill">OpenAI API</span>
@@ -728,9 +246,7 @@
     <div class="project-card">
       <span class="project-tag">AI Safety / Hackathon</span>
       <h3 class="project-title">Interrogation Control Protocol</h3>
-      <p class="project-desc">
-        Built for the Apart Research AI Control Hackathon 2026. Before an untrusted AI agent runs any bash command, a separate trusted monitor asks it two pointed questions about what it's doing and why. If the answers don't add up, the action gets rejected. Claude Sonnet 4 as monitor caught 100% of malicious actions across every test case — and in every single one, the agent just admitted its hidden side goal when asked directly, even when its system prompt told it to hide it.
-      </p>
+      <p class="project-desc">Built for the Apart Research AI Control Hackathon 2026. Before an untrusted AI agent runs any bash command, a separate trusted monitor asks it two pointed questions about what it's doing and why. If the answers don't add up, the action gets rejected. Claude Sonnet 4 as monitor caught 100% of malicious actions — and in every case, the agent admitted its hidden side goal when asked directly, even when its system prompt told it to hide it.</p>
       <div class="project-stack">
         <span class="stack-pill">Python</span>
         <span class="stack-pill">Claude API</span>
@@ -749,9 +265,7 @@
     <div class="project-card">
       <span class="project-tag">AI Safety / Biosecurity</span>
       <h3 class="project-title">Biosafety Prompt Robustness Evaluation</h3>
-      <p class="project-desc">
-        Built for the AIxBio Hackathon 2026 (Apart Research, BlueDot Impact, Cambridge Biosecurity Hub). Tested whether professional authority framing shifts frontier LLM safety refusals on biosecurity queries. GPT-4o complied with 3 of 5 adversarial prompts; Claude complied with 1 of 5. The key finding: an audit using direct queries ranks GPT-4o as the safer model, while adversarial rephrasing reaches the opposite conclusion.
-      </p>
+      <p class="project-desc">Built for the AIxBio Hackathon 2026. Tested whether professional authority framing shifts frontier LLM safety refusals on biosecurity queries. GPT-4o complied with 3 of 5 adversarial prompts; Claude complied with 1 of 5. Key finding: an audit using direct queries ranks GPT-4o as the safer model, while adversarial rephrasing reaches the opposite conclusion.</p>
       <div class="project-stack">
         <span class="stack-pill">Python</span>
         <span class="stack-pill">Claude API</span>
@@ -771,55 +285,49 @@
 
 <hr class="full-divider">
 
-<!-- EXPERIENCE -->
 <section id="experience">
   <p class="section-label">Experience</p>
   <div class="timeline">
-
     <div class="timeline-item">
       <div class="timeline-date">Summer 2025</div>
       <div class="timeline-body">
         <p class="timeline-role">Paid Intern</p>
         <p class="timeline-company">Primerica</p>
         <ul class="timeline-bullets">
-          <li>Executed systematic document scanning and digital conversion of client financial records with validation protocols and error-checking.</li>
-          <li>Analyzed and extracted key data points from documents for entry into structured databases.</li>
-          <li>Collaborated with the IT team on CRM software and adhered to financial services compliance standards.</li>
+          <li>Scanned and converted client financial records into digital format, running validation checks throughout to catch errors before they hit the database.</li>
+          <li>Pulled key data out of documents and entered it into the CRM accurately — tedious but zero-error work that mattered for compliance.</li>
+          <li>Worked alongside the IT team on their CRM workflows and made sure everything was up to financial services compliance requirements.</li>
         </ul>
       </div>
     </div>
-
     <div class="timeline-item">
       <div class="timeline-date">Summer 2019</div>
       <div class="timeline-body">
         <p class="timeline-role">Paid Intern</p>
         <p class="timeline-company">AIG</p>
         <ul class="timeline-bullets">
-          <li>Partnered with software engineering team in Japan to enhance and maintain enterprise insurance database systems.</li>
-          <li>Engineered optimized SQL queries and stored procedures to support critical business reporting and analytics.</li>
-          <li>Developed Python automation scripts to streamline data validation and ETL processes.</li>
+          <li>Worked daily with the Japan engineering team to keep their insurance database systems running and improving across time zones.</li>
+          <li>Wrote SQL queries and stored procedures that multiple departments relied on for their reporting — learned fast what a bad query does to a production system.</li>
+          <li>Wrote Python scripts to automate data validation and ETL work that had been done manually — saved the team real time every week.</li>
           <li>Participated in daily standups across time zones, adapting communication for effective international collaboration.</li>
         </ul>
       </div>
     </div>
-
     <div class="timeline-item">
       <div class="timeline-date">Aug 2024 – Present</div>
       <div class="timeline-body">
         <p class="timeline-role">Server / Bartender</p>
         <p class="timeline-company">H2 Public House</p>
         <ul class="timeline-bullets">
-          <li>Managed up to 10 tables in a high-volume sports bar environment, developing multitasking, communication, and pressure-management skills that directly transfer to fast-moving engineering teams.</li>
+          <li>Ran 10+ tables a night in a loud, fast sports bar — got good at staying calm when everything is happening at once and nothing is going right.</li>
         </ul>
       </div>
     </div>
-
   </div>
 </section>
 
 <hr class="full-divider">
 
-<!-- SKILLS -->
 <section id="skills">
   <p class="section-label">Skills</p>
   <div class="skills-grid">
@@ -837,11 +345,12 @@
     <div class="skill-group">
       <p class="skill-group-title">AI / ML</p>
       <div class="skill-tags">
+        <span class="skill-tag">PyTorch</span>
         <span class="skill-tag">Claude API</span>
         <span class="skill-tag">OpenCV</span>
+        <span class="skill-tag">Multi-Agent RL</span>
         <span class="skill-tag">Computer Vision</span>
         <span class="skill-tag">ETL Pipelines</span>
-        <span class="skill-tag">Async Architecture</span>
       </div>
     </div>
     <div class="skill-group">
@@ -850,7 +359,7 @@
         <span class="skill-tag">Git/GitHub</span>
         <span class="skill-tag">AWS</span>
         <span class="skill-tag">SQLite</span>
-        <span class="skill-tag">Zigbee2MQTT</span>
+        <span class="skill-tag">PettingZoo</span>
         <span class="skill-tag">VS Code</span>
       </div>
     </div>
@@ -867,16 +376,13 @@
 
 <hr class="full-divider">
 
-<!-- CONTACT -->
 <section id="contact">
   <div class="contact-inner">
     <p class="section-label">Contact</p>
     <h2 class="contact-heading">Let's build something <em>real.</em></h2>
-    <p class="contact-sub">
-      I'm actively looking for AI/ML engineering roles where I can contribute real intelligence — not just integration. If you're working on something interesting, I'd love to talk.
-    </p>
+    <p class="contact-sub">I'm actively looking for AI/ML engineering roles where I can contribute real intelligence — not just integration. If you're working on something interesting, I'd love to talk.</p>
     <div class="contact-links">
-      <a href="#" onclick="window.location.href='mailto:adityaprof1786@gmail.com';return false;" class="contact-link">
+      <a href="mailto:adityaprof1786@gmail.com" class="contact-link">
         <span class="contact-link-label">Email</span>
         adityaprof1786@gmail.com
       </a>
@@ -887,6 +393,21 @@
       <a href="https://github.com/asingh38-oss" target="_blank" class="contact-link">
         <span class="contact-link-label">GitHub</span>
         github.com/asingh38-oss
+      </a>
+      <a href="https://linkedin.com/in/aditya-singh-70a069387" target="_blank" class="contact-link">
+        <span class="contact-link-label">LinkedIn</span>
+        linkedin.com/in/aditya-singh-70a069387
+      </a>
+    </div>
+  </div>
+</section>
+
+<hr class="full-divider">
+<footer>
+  <p>Aditya Singh — AI/ML Engineer</p>
+  <p>Charlotte, NC</p>
+</footer>
+
 <script>
   function setTheme(theme) {
     document.documentElement.setAttribute('data-theme', theme);
